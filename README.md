@@ -1,9 +1,15 @@
 # Faster Boats
 
-## Setup
+Make boats faster.
 
-For setup instructions, please see the [Fabric Documentation page](https://docs.fabricmc.net/develop/getting-started/creating-a-project#setting-up) related to the IDE that you are using.
+Available on [Modrinth](https://modrinth.com/mod/faster-boats) and [CurseForge](https://www.curseforge.com/minecraft/mc-mods/faster-boats).
 
-## License
+## Dependencies
 
-This template is available under the CC0 license. Feel free to learn from it and incorporate it in your own projects.
+**Required**
+- [Fabric Loader](https://fabricmc.net/use/) ≥ 0.19.3
+
+
+## Tags
+
+`minecraft, mod, fabric, quality of life (QoL), boats, faster boats, quicker boats, speed, speed up`
