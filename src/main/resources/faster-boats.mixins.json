@@ -3,6 +3,7 @@
 	"package": "com.victorfaurschou.fasterboats.mixin",
 	"compatibilityLevel": "JAVA_25",
 	"mixins": [
+		"BoatSpeedMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
