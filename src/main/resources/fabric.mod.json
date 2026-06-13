@@ -3,7 +3,7 @@
 	"id": "faster-boats",
 	"version": "${version}",
 	"name": "Faster Boats",
-	"description": "Make boats faster.",
+	"description": "Increases boat speed by improving acceleration, making them 1.5x faster going forwards and 1.2x faster in reverse.",
 	"authors": ["medicalwhiskey"],
 	"contact": {
 		"homepage": "https://modrinth.com/mod/faster-boats",
