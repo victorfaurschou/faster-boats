@@ -23,6 +23,8 @@ jobs:
       build_event: ${{ github.event_name }}
       modrinth_loaders: fabric
       modrinth_environment: client_only
+      modrinth_minecraft_versions: "26.2"
       curseforge_loaders: fabric
+      curseforge_minecraft_versions: "26.2"
       curseforge_java_versions: "25"
     secrets: inherit
