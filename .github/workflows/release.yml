@@ -1,24 +1,28 @@
 name: release
 on:
-  workflow_run:
-    workflows: [build]
-    types: [completed]
+  push:
+    tags:
+      - 'v*'
 
 jobs:
+  build:
+    uses: victorfaurschou/minecraft-modding-workflows/.github/workflows/build.yml@main
+    secrets: inherit
+
   release:
-    if: >-
-      github.event.workflow_run.conclusion == 'success' &&
-      github.event.workflow_run.event != 'pull_request' &&
-      startsWith(github.event.workflow_run.head_branch, 'v')
+    needs: build
     permissions:
       contents: write
       actions: read
     uses: victorfaurschou/minecraft-modding-workflows/.github/workflows/release.yml@main
     with:
       mod_name: faster-boats
-      build_run_id: ${{ github.event.workflow_run.id }}
-      build_sha: ${{ github.event.workflow_run.head_sha }}
-      build_branch: ${{ github.event.workflow_run.head_branch }}
-      build_event: ${{ github.event.workflow_run.event }}
+      build_run_id: ${{ github.run_id }}
+      build_sha: ${{ github.sha }}
+      build_branch: ${{ github.ref_name }}
+      build_event: ${{ github.event_name }}
+      modrinth_loaders: fabric
       modrinth_environment: client_only
+      curseforge_loaders: fabric
+      curseforge_java_versions: "25"
     secrets: inherit
