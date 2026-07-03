@@ -2,10 +2,9 @@
 
 **Increases boat speed by 1.3x forwards and in reverse, with an additional speed boost for sustained straight-line travel.**
 
-Available on [Modrinth](https://modrinth.com/mod/faster-boats) and [CurseForge](https://www.curseforge.com/minecraft/mc-mods/faster-boats).
+Available on [Modrinth](https://modrinth.com/mod/faster-boats) and [CurseForge](https://www.curseforge.com/minecraft/mc-mods/faaaster-boats).
 
 ## Features
-
 
 - Increases boat speed by 1.3x forwards and in reverse
 - Traveling in a straight line for 6–8 seconds gradually builds a speed boost, topping out at 1.6x
