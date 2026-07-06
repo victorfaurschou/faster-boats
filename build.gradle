@@ -19,9 +19,12 @@ repositories {
 }
 
 loom {
+	splitEnvironmentSourceSets()
+
 	mods {
 		"faster-boats" {
 			sourceSet sourceSets.main
+			sourceSet sourceSets.client
 		}
 	}
 
