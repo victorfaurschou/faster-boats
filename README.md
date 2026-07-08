@@ -6,8 +6,8 @@ Available on [Modrinth](https://modrinth.com/mod/faster-boats) and [CurseForge](
 
 ## 📖 Features
 
-- Increases boat speed by 1.3x forwards and in reverse
-- Traveling in a straight line for 6–8 seconds gradually builds a speed boost, topping out at 1.6x
+- Increases boat speed by 1.3x/10.4 bps (vanilla: 8 bps) forwards and in reverse
+- Traveling in a straight line for 6–8 seconds gradually builds a speed boost, topping out at 1.6x/16.6 bps
 
 ## 🔗 Dependencies
 
