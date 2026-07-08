@@ -12,12 +12,19 @@
 	},
 	"license": "MIT",
 	"icon": "assets/faster-boats/icon.png",
+	"environment": "client",
 	"mixins": [
 		"faster-boats.mixins.json"
 	],
+	"entrypoints": {
+		"client": [
+			"com.victorfaurschou.fasterboats.client.FasterBoatsClient"
+		]
+	},
 	"depends": {
 		"fabricloader": ">=0.19.3",
 		"minecraft": ">=26.1 <26.2",
-		"java": ">=25"
+		"java": ">=25",
+		"fabric-api": "*"
 	}
 }
