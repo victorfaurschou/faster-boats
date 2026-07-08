@@ -5,7 +5,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.particle.Particle;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.util.Mth;
-import net.minecraft.world.entity.vehicle.boat.AbstractBoat;
+import net.minecraft.world.entity.vehicle.Boat;
 import net.minecraft.world.phys.Vec3;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyConstant;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Mixin(AbstractBoat.class)
+@Mixin(Boat.class)
 public class BoatSpeedMixin {
     @Unique private static final double MIN_MOVING_SPEED = 0.05;
     @Unique private static final double COLLISION_DROP_RATIO = 0.7;
@@ -37,7 +37,7 @@ public class BoatSpeedMixin {
 
     @Inject(method = "tick", at = @At("HEAD"))
     private void trackStraightLine(CallbackInfo ci) {
-        AbstractBoat self = (AbstractBoat) (Object) this;
+        Boat self = (Boat) (Object) this;
 
         // The server zeroes getDeltaMovement() every tick for a boat it doesn't locally control,
         // so real per-tick velocity only exists on the client driving it.
@@ -86,7 +86,7 @@ public class BoatSpeedMixin {
     }
 
     @Unique
-    private void resetBoost(AbstractBoat self) {
+    private void resetBoost(Boat self) {
         straightLineTicks = 0;
         isBoosted = false;
         boostProgress = 0.0F;
@@ -94,12 +94,12 @@ public class BoatSpeedMixin {
     }
 
     @Unique
-    private static int rollBoostThresholdTicks(AbstractBoat self) {
+    private static int rollBoostThresholdTicks(Boat self) {
         return 120 + self.getRandom().nextInt(41);
     }
 
     @Unique
-    private void spawnTrail(AbstractBoat self, Vec3 vel, double hSpeed) {
+    private void spawnTrail(Boat self, Vec3 vel, double hSpeed) {
         var random = self.getRandom();
         float target = boostProgress * TRAIL_PARTICLES_PER_TICK_MAX;
         int count = (int) target;
