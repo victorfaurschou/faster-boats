@@ -1,0 +1,11 @@
+{
+	"schemaVersion": 1,
+	"id": "faster-boats-gametest",
+	"version": "1.0.0",
+	"name": "Faster Boats game tests",
+	"environment": "client",
+	"entrypoints": {
+		"fabric-client-gametest": ["com.victorfaurschou.fasterboats.gametest.FasterBoatsClientGameTest"]
+	},
+	"depends": { "faster-boats": "*" }
+}

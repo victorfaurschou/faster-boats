@@ -30,6 +30,30 @@ loom {
 
 }
 
+// Client game tests in src/gametest/ (./gradlew runClientGameTest). They never ship: build doesn't compile them.
+fabricApi {
+	configureTests {
+		createSourceSet = true
+		modId = "faster-boats-gametest"
+		enableGameTests = false
+		enableClientGameTests = true
+	}
+}
+
+// The game tests packaged as their own jar, so they can run against the release jar in production
+def gametestJar = tasks.register("gametestJar", Jar) {
+	from sourceSets.gametest.output
+	archiveClassifier = "gametest"
+	destinationDirectory = layout.buildDirectory.dir("gametest-libs") // keep it out of build/libs, which CI uploads
+}
+
+tasks.register("runProductionClientGameTest", net.fabricmc.loom.task.prod.ClientProductionRunTask) {
+	mods.from(gametestJar)
+	jvmArgs.add("-Dfabric.client.gametest")
+	jvmArgs.add("-Dfabric.noGui=true") // a load error fails the run instead of waiting on an error window
+	runDir = layout.buildDirectory.dir("run/productionClientGameTest") // not run/, which holds the dev world
+}
+
 dependencies {
 	// To change the versions see the gradle.properties file
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
@@ -38,6 +62,9 @@ dependencies {
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+
+	// Runtime mods for runProductionClientGameTest, which launches the release jar like a launcher does
+	productionRuntimeMods "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
 
 }
 
