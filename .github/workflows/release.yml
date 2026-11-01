@@ -26,6 +26,7 @@ jobs:
       modrinth_minecraft_versions: "26.2"
       modrinth_dependencies: '[{"project_id":"P7dR8mSH","dependency_type":"required"}]'
       curseforge_loaders: fabric
+      curseforge_environment: client
       curseforge_relations: '[{"slug":"fabric-api","type":"requiredDependency"}]'
       curseforge_minecraft_versions: "26.2"
       curseforge_java_versions: "25"
